@@ -3,10 +3,7 @@
 Windows PowerShell을 꾸미는 개인 설정 모음입니다.
 [oh-my-posh](https://ohmyposh.dev/) 테마를 바탕으로, 프롬프트의 고양이 표정이 **git 상태에 따라 바뀌도록** 만들었습니다.
 
-```
- ez   ~/dune/workspace/pwsh-customize  master  ?3                        14:40:05
-😼
-```
+![PowerShell 미리보기](assets/preview.png)
 
 ## 구성
 
