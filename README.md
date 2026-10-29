@@ -25,8 +25,9 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 
 1. `winget`으로 oh-my-posh를 설치합니다.
 2. `Terminal-Icons` 모듈과 Meslo Nerd Font를 설치합니다.
-3. 테마 파일을 `~\.config\oh-my-posh\`로 복사합니다.
-4. 프로필을 `$PROFILE` 위치로 복사합니다. 기존 프로필은 `.bak`으로 백업됩니다.
+3. PowerShellGet과 PSReadLine을 최신 버전으로 업데이트합니다. Windows 기본 PSReadLine(2.0.0)에는 프로필의 추천 옵션이 없습니다.
+4. 테마 파일을 `~\.config\oh-my-posh\`로 복사합니다.
+5. 프로필을 `$PROFILE` 위치로 복사합니다. 기존 프로필은 `.bak`으로 백업됩니다.
 
 설치가 끝나면 **Windows Terminal → 설정 → PowerShell → 모양 → 글꼴**을 `MesloLGM Nerd Font`로 바꾸고 새 창을 여세요.
 글꼴을 바꾸지 않으면 아이콘이 □로 깨져 보입니다.

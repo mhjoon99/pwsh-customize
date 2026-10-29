@@ -9,12 +9,18 @@ $env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Env
 Install-Module Terminal-Icons -Scope CurrentUser -Force
 oh-my-posh font install meslo
 
-# 3) 테마 복사
+# 3) PSReadLine 업데이트 (Windows 기본 2.0.0 에는 프로필의 Prediction 옵션이 없다)
+Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
+# 새 PowerShellGet 은 새 프로세스에서만 로드되므로 따로 띄워 설치한다
+powershell -NoProfile -Command "Install-Module PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck"
+if ($LASTEXITCODE) { throw 'PSReadLine 설치 실패' }
+
+# 4) 테마 복사
 $themeDir = "$HOME\.config\oh-my-posh"
 New-Item -ItemType Directory -Force $themeDir | Out-Null
 Copy-Item "$repo\iterm2.omp.json" $themeDir -Force
 
-# 4) 프로필 복사 (기존 프로필은 .bak으로 백업)
+# 5) 프로필 복사 (기존 프로필은 .bak으로 백업)
 New-Item -ItemType Directory -Force (Split-Path $PROFILE) | Out-Null
 if (Test-Path $PROFILE) { Copy-Item $PROFILE "$PROFILE.bak" -Force }
 Copy-Item "$repo\Microsoft.PowerShell_profile.ps1" $PROFILE -Force
